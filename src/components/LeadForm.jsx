@@ -44,6 +44,24 @@ export default function LeadForm() {
           </Form.Group>
           
         </Row>
+        <Row>
+        <Form.Group as={Col} className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control type="email" placeholder="Enter email" />
+      </Form.Group>
+
+      <Form.Group as={Col} md="4" controlId="validationCustom01">
+            <Form.Label>Phone Number</Form.Label>
+            <Form.Control
+              required
+              type="text"
+              placeholder="Phone Number"
+             
+            />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          </Form.Group>
+
+        </Row>
         <Row className="mb-3">
           <Form.Group as={Col} md="6" controlId="validationCustom03">
             <Form.Label>City</Form.Label>
@@ -67,6 +85,29 @@ export default function LeadForm() {
             </Form.Control.Feedback>
           </Form.Group>
         </Row>
+        <Row>
+       
+        <div key={`inline-checkbox`} className="mb-3">
+          <Form.Check
+            inline
+            label="In Person Learning"
+            name="Local"
+            type="inline-checkbox"
+            id={`inline-local`}
+          />
+          <Form.Check
+            inline
+            label="Online Learning"
+            name="remote"
+            type="inline-checkbox"
+            id={`inline-remote`}
+          />
+         
+ 
+         
+        </div>
+     
+</Row>
         <Form.Group className="mb-3">
           <Form.Check
             required

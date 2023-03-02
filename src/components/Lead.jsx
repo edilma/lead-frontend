@@ -8,6 +8,7 @@ export default function Lead({lead}) {
     return(
         <Row>
         <Col>{first_name + " " + last_name}</Col>
+        <Col>{address}</Col>
         <Col>{phone_number}</Col>
         <Col>{zip}</Col>
         <Col>{city}</Col>
