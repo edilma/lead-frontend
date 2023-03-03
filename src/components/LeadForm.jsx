@@ -2,7 +2,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Navigate } from 'react-router-dom';
 
 export default function LeadForm() {
   const [validated, setValidated] = useState(false);
@@ -23,7 +24,6 @@ export default function LeadForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(formData);
-    event.stopPropagation();
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       alert("You need to correct the errors")
@@ -39,9 +39,20 @@ export default function LeadForm() {
         zip: formData.zip,
         local: formData.local,
         remote: formData.remote,
+        agree:formData.agree
       };
-    
-    console.log(data)
+      fetch(`http://127.0.0.1:5002/leads`, {
+        method:"POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(data)
+      })
+      console.log(data)
+      .then(res=>res.json())
+      .then(()=>{
+        Navigate('/thanks')
+
+      })
+      .catch(console.error)
     setValidated(true);
   }
   }
@@ -56,11 +67,19 @@ export default function LeadForm() {
   const setCheckboxField = (event) => {
     const { name, checked } = event.target;
     setFormData({...formData,[name]: checked});
-    // setFormData((prevState) => ({
-    //   ...prevState,
-    //   [name]: checked,
-    // }));
+
   };
+useEffect(()=>{
+//   fetch(`http://127.0.0.1:5002/leads`, {
+//   method:"POST",
+//   headers: {"Content-Type": "application/json"},
+//   body: JSON.stringify(formData)
+// })
+// .then(res=>res.json())
+// .then(setFormData)
+// .catch(console.error)
+
+},[])
 
 return (
   <>
@@ -175,7 +194,6 @@ return (
       </Row>
       <Row>
 
-        
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check 
         name='local'
