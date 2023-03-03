@@ -33,10 +33,11 @@ const fakeleads = [{
     site_collected: "findit.com"
 }]
 
-export default function LeadList() {
-    const [leads, setLeads] = useState(fakeleads)
+export default function LeadList({type}) {
+    const [leads, setLeads] = useState([])
+    console.log(type)
     useEffect(() => {
-        fetch('http://127.0.0.1:5002/leads')
+        fetch(`http://127.0.0.1:5002/leads/${type}`)
             .then(res => res.json())
             .then((leads) => {
                 console.log(leads)
@@ -48,6 +49,7 @@ export default function LeadList() {
 
     return (
         <Container>
+            <h1>Leads Type: {type || "All Leads"}</h1>
             <Row>
                 <Col>Full Name</Col>
                 <Col>Phone</Col>

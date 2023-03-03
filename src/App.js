@@ -13,7 +13,9 @@ function App() {
       <Routes>
     
         <Route path="/leadForm" element ={<LeadFormPage />} />
-        <Route path="/leads" element={<LeadListPage />} />
+        <Route path="/leads" element={<LeadListPage type=""/>} />
+        <Route path="/remote-leads" element={<LeadListPage type="Remote" />} />
+        <Route path="/local-leads" element={<LeadListPage type="Local"/>} />
         <Route path='/thanks' element={<ThankYouPage />} />
       </Routes>
 

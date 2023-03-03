@@ -7,14 +7,20 @@ import { useState } from 'react';
 export default function LeadForm() {
     const [validated, setValidated] = useState(false);
 
+
     const handleSubmit = (event) => {
+      event.preventDefault();
+      event.stopPropagation();
       const form = event.currentTarget;
       if (form.checkValidity() === false) {
-        event.preventDefault();
-        event.stopPropagation();
+        alert("You need to correct the errors")
       }
+      else{
+        console.log (form)
+        setValidated(true);
+      }
+     
   
-      setValidated(true);
     };
   
     return (
