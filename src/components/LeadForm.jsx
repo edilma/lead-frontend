@@ -3,9 +3,10 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useEffect, useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 export default function LeadForm() {
+  const navigate = useNavigate();
   const [validated, setValidated] = useState(false);
   const [formData, setFormData] = useState({
     first_name: '',
@@ -19,8 +20,20 @@ export default function LeadForm() {
     remote: false,
     agree: false,
   })
-
-
+  //change the state of the form field 
+  //one by one (text fields)
+  const setFormField = (event) => {
+    const { name, value } = event.target;
+    setFormData({...formData,[name]: value});
+  };
+  // same but for checkbox 
+  const setCheckboxField = (event) => {
+    const { name, checked } = event.target;
+    setFormData({...formData,[name]: checked});
+  };
+  //now  handle submit.  
+  //First check validation and then fetch
+  // in fetch redirect to the thank you page
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(formData);
@@ -29,6 +42,7 @@ export default function LeadForm() {
       alert("You need to correct the errors")
     }
     else {
+      setValidated(true);
       const data = {
         first_name: formData.first_name,
         last_name: formData.last_name,
@@ -46,40 +60,13 @@ export default function LeadForm() {
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(data)
       })
-      console.log(data)
       .then(res=>res.json())
       .then(()=>{
-        Navigate('/thanks')
-
+        navigate('/thanks')
       })
       .catch(console.error)
-    setValidated(true);
   }
   }
-  //change the state of the form field 
-  //one by one (text fields)
-  const setFormField = (event) => {
-    const { name, value } = event.target;
-    setFormData({...formData,[name]: value});
-  };
-  //this takes the info in data.fieldName and 
-  // using state put it in formData field for the checkbox 
-  const setCheckboxField = (event) => {
-    const { name, checked } = event.target;
-    setFormData({...formData,[name]: checked});
-
-  };
-useEffect(()=>{
-//   fetch(`http://127.0.0.1:5002/leads`, {
-//   method:"POST",
-//   headers: {"Content-Type": "application/json"},
-//   body: JSON.stringify(formData)
-// })
-// .then(res=>res.json())
-// .then(setFormData)
-// .catch(console.error)
-
-},[])
 
 return (
   <>
@@ -200,7 +187,7 @@ return (
         type="checkbox" 
         label="Local Leads" 
         checked={formData.local}
-        onChange={setFormField}
+        onChange={setCheckboxField}
         />
       </Form.Group>
 
@@ -210,7 +197,7 @@ return (
         type="checkbox" 
         label="Remote Leads" 
         checked={formData.remote}
-        onChange={setFormField}
+        onChange={setCheckboxField}
         />
       </Form.Group>
 
@@ -222,7 +209,7 @@ return (
           type='checkbox'
           label="You will be contacted with information about Bootcamps."
           checked={formData.agree}
-          onChange={setFormField}
+          onChange={setCheckboxField}
           feedback="You must agree before submitting."
           feedbackType="invalid"
         />
