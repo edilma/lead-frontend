@@ -28,12 +28,13 @@ export default function LeadList({type}) {
                 <Col>Phone Number</Col>
                 <Col>Email</Col>
                 <Col>State</Col>
+                <Col>Learning Type</Col>
                 <Col>Agree</Col>
             </Row>
             {!leads
                 ? "There are no leads"
                 : leads.map((lead) => (
-                    <Lead key={lead.id} lead={lead} />
+                    <Lead key={lead._id} lead={lead} />
                 ))
             }
         </Container>

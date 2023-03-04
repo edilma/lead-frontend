@@ -16,8 +16,9 @@ export default function LeadForm() {
     city: '',
     state: '',
     zip: '',
-    local: false,
-    remote: false,
+    learning_option: '',
+    //local: false,
+    //remote: false,
     agree: false,
   })
   //change the state of the form field 
@@ -26,6 +27,11 @@ export default function LeadForm() {
     const { name, value } = event.target;
     setFormData({...formData,[name]: value});
   };
+  //same for radio fields
+  const handleRadioChange = (event) => {
+    setFormField(event);
+  };
+
   // same but for checkbox 
   const setCheckboxField = (event) => {
     const { name, checked } = event.target;
@@ -51,8 +57,9 @@ export default function LeadForm() {
         city: formData.city,
         state: formData.state,
         zip: formData.zip,
-        local: formData.local,
-        remote: formData.remote,
+        learning_option:formData.learning_option,
+        //local: formData.local,
+        //remote: formData.remote,
         agree:formData.agree
       };
       fetch(`http://127.0.0.1:5002/leads`, {
@@ -180,26 +187,27 @@ return (
 
       </Row>
       <Row>
-
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check 
-        name='local'
-        type="checkbox" 
-        label="Local Leads" 
-        checked={formData.local}
-        onChange={setCheckboxField}
-        />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check 
-        name="remote" 
-        type="checkbox" 
-        label="Remote Leads" 
-        checked={formData.remote}
-        onChange={setCheckboxField}
-        />
-      </Form.Group>
+      <Form.Group as={Col} md="3" controlId="validationCustom06">
+          <Form.Label>How you prefer to learn</Form.Label>
+          <Form.Check 
+            inline 
+            label="Remote" 
+            type="radio" 
+            name="learning_option" 
+            value="remote"
+            checked={formData.learning_option === "remote"}
+            onChange={handleRadioChange} 
+          />
+          <Form.Check 
+            inline 
+            label="Local" 
+            type="radio" 
+            name="learning_option" 
+            value="local"
+            checked={formData.learning_option === "local"}
+            onChange={handleRadioChange} 
+            />
+        </Form.Group>
 
       </Row>
       <Form.Group className="mb-3">
