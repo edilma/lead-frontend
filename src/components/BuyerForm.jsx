@@ -19,20 +19,20 @@ export default function BuyerForm() {
     zip: '',
     leads_required: 'Choose ...'
   });
-  
+
 
   const setFormField = (event) => {
     const { name, value } = event.target;
     setBuyerFormData({ ...buyerFormData, [name]: value })
   };
 
-  const handleSubmit= (e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-    if(form.checkValidity()===false){
+    if (form.checkValidity() === false) {
       alert("You need to correct some errors")
     }
-    else{
+    else {
       setValidated(true);
       const buyerData = {
         companyName: buyerFormData.companyName,
@@ -45,16 +45,16 @@ export default function BuyerForm() {
         leads_required: buyerFormData.leads_required
       };
       fetch(`http://127.0.0.1:5002/leads`, {
-        method:"POST",
-        headers: {"Content-Type": "application/json"},
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(buyerData)
       })
-      .then(res=>res.json())
-      .then(()=>{
-        navigate(`/${buyerData.leads_required}`)
-      })
-      .catch(console.error)
-  }
+        .then(res => res.json())
+        .then(() => {
+          navigate(`/leads/${buyerData.leads_required}`)
+        })
+        .catch(console.error)
+    }
   }
 
   return (
@@ -148,19 +148,17 @@ export default function BuyerForm() {
 
         <Form.Group as={Col} controlId="formGridLeadsReq">
           <Form.Label>Leads Required</Form.Label>
-          <Form.Select 
-          name='leads_required'
-          value={buyerFormData.leads_required} 
-          onChange={setFormField}>
+          <Form.Select
+            name='leads_required'
+            value={buyerFormData.leads_required}
+            onChange={setFormField}>
             <option value='local'>Local </option>
             <option value='remote'>Remote </option>
-            <option value='all'>Local and Remote </option>
+            <option value=''>Local and Remote </option>
           </Form.Select>
         </Form.Group>
 
       </Row>
-  
-
       <Button variant="primary" type="submit">
         Show me my leads
       </Button>
