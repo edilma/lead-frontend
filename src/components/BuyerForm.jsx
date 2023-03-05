@@ -51,7 +51,7 @@ export default function BuyerForm() {
       })
       .then(res=>res.json())
       .then(()=>{
-        navigate('/local')
+        navigate(`/${buyerData.leads_required}`)
       })
       .catch(console.error)
   }
