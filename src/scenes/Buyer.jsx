@@ -5,7 +5,7 @@ import Header from "../components/Header.jsx";
 
 
 
-export default function Sandbox(){
+export default function Buyer(){
     return(
         <Container>
         <Header/>

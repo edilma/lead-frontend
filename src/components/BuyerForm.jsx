@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { uri } from '../config.js';
 
 
 export default function BuyerForm() {
@@ -12,12 +13,12 @@ export default function BuyerForm() {
   const [buyerFormData, setBuyerFormData] = useState({
     companyName: '',
     contactName: '',
+    password:'',
     email: '',
     phone_number: '',
     city: '',
-    state: '',
     zip: '',
-    leads_required: 'Choose ...'
+    leads_required: 'local'
   });
 
 
@@ -28,7 +29,7 @@ export default function BuyerForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const form = e.target;
+    const form = e.currentTarget;
     if (form.checkValidity() === false) {
       alert("You need to correct some errors")
     }
@@ -37,6 +38,7 @@ export default function BuyerForm() {
       const buyerData = {
         companyName: buyerFormData.companyName,
         contactName: buyerFormData.contactName,
+        password: buyerFormData.password,
         email: buyerFormData.email,
         phone_number: buyerFormData.phone_number,
         city: buyerFormData.city,
@@ -44,7 +46,7 @@ export default function BuyerForm() {
         zip: buyerFormData.zip,
         leads_required: buyerFormData.leads_required
       };
-      fetch(`http://127.0.0.1:5002/leads`, {
+      fetch(`${uri}/buyers`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(buyerData)
@@ -61,7 +63,7 @@ export default function BuyerForm() {
     <Form noValidate validated={validated} onSubmit={handleSubmit}>
       <Row className="mb-3">
 
-        <Form.Group as={Col} md="4" controlId="validationCustom02">
+        <Form.Group as={Col} md="4" controlId="validationCustom01">
           <Form.Label>Company Name</Form.Label>
           <Form.Control
             required
@@ -73,6 +75,7 @@ export default function BuyerForm() {
           />
           <Form.Control.Feedback type="invalid">Please enter your company name</Form.Control.Feedback>
         </Form.Group>
+
         <Form.Group as={Col} md="4" controlId="validationCustom02">
           <Form.Label>Contact Name</Form.Label>
           <Form.Control
@@ -86,7 +89,22 @@ export default function BuyerForm() {
           <Form.Control.Feedback type="invalid">Please enter your name</Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group as={Col} controlId="formGridEmail">
+
+        <Form.Group as={Col} md="4" controlId="validationCustom03">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            required
+            name="password"
+            onChange={setFormField}
+            type="password"
+            placeholder="Password"
+            value={buyerFormData.password}
+          />
+          <Form.Control.Feedback type="invalid">Please enter your password</Form.Control.Feedback>
+        </Form.Group>
+
+
+        <Form.Group as={Col} controlId="formBasicEmail">
           <Form.Label>Email</Form.Label>
           <Form.Control
             required
@@ -102,7 +120,7 @@ export default function BuyerForm() {
         </Form.Group>
 
 
-        <Form.Group as={Col} md="4" controlId="validationCustom01">
+        <Form.Group as={Col} md="4" controlId="validationCustom04">
           <Form.Label>Phone Number</Form.Label>
           <Form.Control
             required
@@ -115,7 +133,7 @@ export default function BuyerForm() {
           <Form.Control.Feedback>Please enter a valid phone number</Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group as={Col} md="6" controlId="validationCustom03">
+        <Form.Group as={Col} md="6" controlId="validationCustom05">
           <Form.Label>City</Form.Label>
           <Form.Control
             required
@@ -130,7 +148,7 @@ export default function BuyerForm() {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group as={Col} md="3" controlId="validationCustom05">
+        <Form.Group as={Col} md="3" controlId="validationCustom06">
           <Form.Label>Zip</Form.Label>
           <Form.Control
             required
@@ -146,7 +164,7 @@ export default function BuyerForm() {
         </Form.Group>
 
 
-        <Form.Group as={Col} controlId="formGridLeadsReq">
+        <Form.Group as={Col} controlId="validationCustom07">
           <Form.Label>Leads Required</Form.Label>
           <Form.Select
             name='leads_required'

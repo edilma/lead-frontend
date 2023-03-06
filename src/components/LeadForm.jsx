@@ -4,6 +4,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useEffect, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { uri } from '../config.js';
+
 
 export default function LeadForm() {
   const navigate = useNavigate();
@@ -25,7 +27,7 @@ export default function LeadForm() {
   //one by one (text fields)
   const setFormField = (event) => {
     const { name, value } = event.target;
-    setFormData({...formData,[name]: value});
+    setFormData({ ...formData, [name]: value });
   };
   //same for radio fields
   const handleRadioChange = (event) => {
@@ -35,7 +37,7 @@ export default function LeadForm() {
   // same but for checkbox 
   const setCheckboxField = (event) => {
     const { name, checked } = event.target;
-    setFormData({...formData,[name]: checked});
+    setFormData({ ...formData, [name]: checked });
   };
   //now  handle submit.  
   //First check validation and then fetch
@@ -57,175 +59,173 @@ export default function LeadForm() {
         city: formData.city,
         state: formData.state,
         zip: formData.zip,
-        learning_option:formData.learning_option,
-        //local: formData.local,
-        //remote: formData.remote,
-        agree:formData.agree
+        learning_option: formData.learning_option,
+        agree: formData.agree
       };
-      fetch(`http://127.0.0.1:5002/leads`, {
-        method:"POST",
-        headers: {"Content-Type": "application/json"},
+      fetch(`${uri}/leads`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
       })
-      .then(res=>res.json())
-      .then(()=>{
-        navigate('/thanks')
-      })
-      .catch(console.error)
+        .then(res => res.json())
+        .then(() => {
+          navigate('/thanks')
+        })
+        .catch(console.error)
+    }
   }
-  }
 
-return (
-  <>
-    <h2> LEARN CODING IN WEEKS</h2>
-    <Form noValidate validated={validated} onSubmit={handleSubmit}>
-      <Row className="mb-3">
-        <Form.Group as={Col} md="4" controlId="validationCustom01">
-          <Form.Label>First name</Form.Label>
-          <Form.Control
-            required
-            name="first_name"
-            onChange={setFormField}
-            type="text"
-            placeholder="First name"
-            value={formData.first_name}
-          />
-          <Form.Control.Feedback type="invalid">Please enter your first name</Form.Control.Feedback>
-        </Form.Group>
-
-        <Form.Group as={Col} md="4" controlId="validationCustom02">
-          <Form.Label>Last name</Form.Label>
-          <Form.Control
-            required
-            name="last_name"
-            onChange={setFormField}
-            type="text"
-            placeholder="Last name"
-            value={formData.last_name}
-          />
-          <Form.Control.Feedback type="invalid">Please enter your last name</Form.Control.Feedback>
-        </Form.Group>
-
-      </Row>
-      <Row>
-        <Form.Group as={Col} className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control 
-          required
-          type="email" 
-          name="email"
-          onChange={setFormField}
-          placeholder="Enter email"
-          value={formData.email}
-           />
-        <Form.Control.Feedback type="invalid">
-          Please enter a valid email.
-        </Form.Control.Feedback>
-        </Form.Group>
-
-
-        <Form.Group as={Col} md="4" controlId="validationCustom01">
-          <Form.Label>Phone Number</Form.Label>
-          <Form.Control
-            required
-            name="phone_number"
-            onChange={setFormField}
-            type="text"
-            placeholder="Phone Number"
-            value={formData.phone_number}
-          />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-        </Form.Group>
-
-      </Row>
-      <Row className="mb-3">
-        <Form.Group as={Col} md="6" controlId="validationCustom03">
-          <Form.Label>City</Form.Label>
-          <Form.Control
-          required
-          name="city"
-          onChange={setFormField}
-          type="text"
-          placeholder="City"
-          value={formData.city}
-           />
-          <Form.Control.Feedback type="invalid">
-            Please provide a valid city.
-          </Form.Control.Feedback>
-        </Form.Group>
-
-
-        <Form.Group as={Col} md="3" controlId="validationCustom04">
-          <Form.Label>State</Form.Label>
-          <Form.Control 
-         required
-         name="state"
-         onChange={setFormField}
-         type="text"
-         placeholder="State"
-         value={formData.state}
-          />
-          <Form.Control.Feedback type="invalid">
-            Please provide a valid state.
-          </Form.Control.Feedback>
-
-        </Form.Group>
-        <Form.Group as={Col} md="3" controlId="validationCustom05">
-          <Form.Label>Zip</Form.Label>
-          <Form.Control 
-          required
-          name="zip"
-          onChange={setFormField}
-          type="text"
-          placeholder="Zip Code"
-          value={formData.zip}
-          />
-          <Form.Control.Feedback type="invalid">
-            Please provide a valid zip.
-          </Form.Control.Feedback>
-        </Form.Group>
-
-      </Row>
-      <Row>
-      <Form.Group as={Col} md="3" controlId="validationCustom06">
-          <Form.Label>How you prefer to learn</Form.Label>
-          <Form.Check 
-            inline 
-            label="Remote" 
-            type="radio" 
-            name="learning_option" 
-            value="remote"
-            checked={formData.learning_option === "remote"}
-            onChange={handleRadioChange} 
-          />
-          <Form.Check 
-            inline 
-            label="Local" 
-            type="radio" 
-            name="learning_option" 
-            value="local"
-            checked={formData.learning_option === "local"}
-            onChange={handleRadioChange} 
+  return (
+    <>
+      <h2> LEARN CODING IN WEEKS</h2>
+      <Form noValidate validated={validated} onSubmit={handleSubmit}>
+        <Row className="mb-3">
+          <Form.Group as={Col} md="4" controlId="validationCustom01">
+            <Form.Label>First name</Form.Label>
+            <Form.Control
+              required
+              name="first_name"
+              onChange={setFormField}
+              type="text"
+              placeholder="First name"
+              value={formData.first_name}
             />
-        </Form.Group>
+            <Form.Control.Feedback type="invalid">Please enter your first name</Form.Control.Feedback>
+          </Form.Group>
 
-      </Row>
-      <Form.Group className="mb-3">
-        <Form.Check
-          required
-          name='agree'
-          type='checkbox'
-          label="You will be contacted with information about Bootcamps."
-          checked={formData.agree}
-          onChange={setCheckboxField}
-          feedback="You must agree before submitting."
-          feedbackType="invalid"
-        />
-      </Form.Group>
-      <Button type="submit">Please Contact Me</Button>
-    </Form>
-  </>
-);
-  }
+          <Form.Group as={Col} md="4" controlId="validationCustom02">
+            <Form.Label>Last name</Form.Label>
+            <Form.Control
+              required
+              name="last_name"
+              onChange={setFormField}
+              type="text"
+              placeholder="Last name"
+              value={formData.last_name}
+            />
+            <Form.Control.Feedback type="invalid">Please enter your last name</Form.Control.Feedback>
+          </Form.Group>
+
+        </Row>
+        <Row>
+          <Form.Group as={Col} className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control
+              required
+              type="email"
+              name="email"
+              onChange={setFormField}
+              placeholder="Enter email"
+              value={formData.email}
+            />
+            <Form.Control.Feedback type="invalid">
+              Please enter a valid email.
+            </Form.Control.Feedback>
+          </Form.Group>
+
+
+          <Form.Group as={Col} md="4" controlId="validationCustom01">
+            <Form.Label>Phone Number</Form.Label>
+            <Form.Control
+              required
+              name="phone_number"
+              onChange={setFormField}
+              type="text"
+              placeholder="Phone Number"
+              value={formData.phone_number}
+            />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          </Form.Group>
+
+        </Row>
+        <Row className="mb-3">
+          <Form.Group as={Col} md="6" controlId="validationCustom03">
+            <Form.Label>City</Form.Label>
+            <Form.Control
+              required
+              name="city"
+              onChange={setFormField}
+              type="text"
+              placeholder="City"
+              value={formData.city}
+            />
+            <Form.Control.Feedback type="invalid">
+              Please provide a valid city.
+            </Form.Control.Feedback>
+          </Form.Group>
+
+
+          <Form.Group as={Col} md="3" controlId="validationCustom04">
+            <Form.Label>State</Form.Label>
+            <Form.Control
+              required
+              name="state"
+              onChange={setFormField}
+              type="text"
+              placeholder="State"
+              value={formData.state}
+            />
+            <Form.Control.Feedback type="invalid">
+              Please provide a valid state.
+            </Form.Control.Feedback>
+
+          </Form.Group>
+          <Form.Group as={Col} md="3" controlId="validationCustom05">
+            <Form.Label>Zip</Form.Label>
+            <Form.Control
+              required
+              name="zip"
+              onChange={setFormField}
+              type="text"
+              placeholder="Zip Code"
+              value={formData.zip}
+            />
+            <Form.Control.Feedback type="invalid">
+              Please provide a valid zip.
+            </Form.Control.Feedback>
+          </Form.Group>
+
+        </Row>
+        <Row>
+          <Form.Group as={Col} md="3" controlId="validationCustom06">
+            <Form.Label>How you prefer to learn</Form.Label>
+            <Form.Check
+              inline
+              label="Remote"
+              type="radio"
+              name="learning_option"
+              value="remote"
+              checked={formData.learning_option === "remote"}
+              onChange={handleRadioChange}
+            />
+            <Form.Check
+              inline
+              label="Local"
+              type="radio"
+              name="learning_option"
+              value="local"
+              checked={formData.learning_option === "local"}
+              onChange={handleRadioChange}
+            />
+          </Form.Group>
+
+        </Row>
+        <Form.Group className="mb-3">
+          <Form.Check
+            required
+            name='agree'
+            type='checkbox'
+            label="You will be contacted with information about Bootcamps."
+            checked={formData.agree}
+            onChange={setCheckboxField}
+            feedback="You must agree before submitting."
+            feedbackType="invalid"
+          />
+        </Form.Group>
+        <Button type="submit">Please Contact Me</Button>
+      </Form>
+    </>
+  );
+}
 
 

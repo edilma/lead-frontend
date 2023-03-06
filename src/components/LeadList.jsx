@@ -3,12 +3,13 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Lead from './Lead.jsx';
 import { useEffect, useState } from 'react';
+import { uri } from '../config.js';
 
 export default function LeadList({type}) {
     const [leads, setLeads] = useState([])
     console.log(type)
     useEffect(() => {
-        fetch(`http://127.0.0.1:5002/leads/${type}`)
+        fetch(`${uri}/leads/${type}`)
             .then(res => res.json())
             .then((leads) => {
                 console.log(leads)
