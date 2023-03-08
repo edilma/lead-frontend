@@ -41,3 +41,8 @@
   width: 100px;
   float: right;
 }
+.btn-primary{
+  background-color: #f3e20d;
+  color: black ;
+  font-weight: bolder;
+}

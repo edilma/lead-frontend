@@ -5,7 +5,7 @@ import Header from "../components/Header.jsx";
 
 
 
-export default function Buyer(){
+export default function BuyerPage(){
     return(
         <Container>
         <Header/>

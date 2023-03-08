@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Lead from './Lead.jsx';
 import { useEffect, useState } from 'react';
 import { uri } from '../config.js';
+import '../../src/styles/leadList.css'
 
 export default function LeadList({type}) {
     const [leads, setLeads] = useState([])

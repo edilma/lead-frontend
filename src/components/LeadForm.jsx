@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import { useEffect, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { uri } from '../config.js';
+import "../styles/water.css"
 
 
 export default function LeadForm() {
@@ -77,7 +78,7 @@ export default function LeadForm() {
 
   return (
     <>
-      <h2> LEARN CODING IN WEEKS</h2>
+      <h4> GET HIRED AS A SOFTWARE ENGINEER!</h4>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Row className="mb-3">
           <Form.Group as={Col} md="4" controlId="validationCustom01">
@@ -222,7 +223,7 @@ export default function LeadForm() {
             feedbackType="invalid"
           />
         </Form.Group>
-        <Button type="submit">Please Contact Me</Button>
+        <Button className='submit-button' type="submit">Please Contact Me</Button>
       </Form>
     </>
   );
