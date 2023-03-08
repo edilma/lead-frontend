@@ -103,8 +103,20 @@ export default function BuyerForm() {
           <Form.Control.Feedback type="invalid">Please enter your password</Form.Control.Feedback>
         </Form.Group>
 
+        <Form.Group as={Col} md="6" controlId="validationCustom04">
+          <Form.Label>Phone Number</Form.Label>
+          <Form.Control
+            required
+            name="phone_number"
+            onChange={setFormField}
+            type="text"
+            placeholder="Phone Number"
+            value={buyerFormData.phone_number}
+          />
+          <Form.Control.Feedback>Please enter a valid phone number</Form.Control.Feedback>
+        </Form.Group>
 
-        <Form.Group as={Col} controlId="formBasicEmail">
+        <Form.Group as={Col} md="6" controlId="formBasicEmail">
           <Form.Label>Email</Form.Label>
           <Form.Control
             required
@@ -120,20 +132,7 @@ export default function BuyerForm() {
         </Form.Group>
 
 
-        <Form.Group as={Col} md="4" controlId="validationCustom04">
-          <Form.Label>Phone Number</Form.Label>
-          <Form.Control
-            required
-            name="phone_number"
-            onChange={setFormField}
-            type="text"
-            placeholder="Phone Number"
-            value={buyerFormData.phone_number}
-          />
-          <Form.Control.Feedback>Please enter a valid phone number</Form.Control.Feedback>
-        </Form.Group>
-
-        <Form.Group as={Col} md="6" controlId="validationCustom05">
+        <Form.Group as={Col} md="4" controlId="validationCustom05">
           <Form.Label>City</Form.Label>
           <Form.Control
             required
@@ -178,7 +177,7 @@ export default function BuyerForm() {
 
       </Row>
       <Button variant="primary" type="submit">
-        Show me my leads
+        Show me MY leads
       </Button>
     </Form>
   );

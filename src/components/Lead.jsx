@@ -2,11 +2,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 
-export default function Lead({lead}) {
+export default function Lead({lead, type}) {
     const {first_name, last_name, zip, city, state,
         email,phone_number,learning_option, agree} = lead
     return(
-        <Row>
+        <Row className={!type ? learning_option : ''}>
         <Col>{first_name + " " + last_name}</Col>
         <Col>{zip}</Col>
         <Col>{city}</Col>

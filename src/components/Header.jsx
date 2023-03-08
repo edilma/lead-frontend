@@ -1,8 +1,10 @@
-import LDS_Header from "../images/LDS_Header.jpeg"
+import { Row } from "react-bootstrap"
+import LDS_Header from "../images/LDS_Header.png"
+
 
 export default function Header(){
-    return(
+    return(<Row className="bg-header">
         <img className="logoImage"  src={LDS_Header} alt="LDS Logo"/>
-    
+        </Row>
     )
 }

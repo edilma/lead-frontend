@@ -36,13 +36,24 @@
     transform: rotate(360deg);
   }
 }
-
+.bg-header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3e20d;
+}
+.bg-header img{
+  width: 300px;
+}
 .logoImage {
-  width: 100px;
-  float: right;
+  width: auto;
+  float: center;
 }
 .btn-primary{
   background-color: #f3e20d;
   color: black ;
   font-weight: bolder;
 }
+.p-greeting{
+  background-color: #12c8dd;
+color: black  ;}

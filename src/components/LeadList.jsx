@@ -7,6 +7,7 @@ import { uri } from '../config.js';
 import '../../src/styles/leadList.css'
 
 export default function LeadList({type}) {
+    //const [bgType, setbgType] = useState("all")
     const [leads, setLeads] = useState([])
     console.log(type)
     useEffect(() => {
@@ -21,9 +22,9 @@ export default function LeadList({type}) {
     }, [])
 
     return (
-        <Container>
+        <Container >
             <h1>Leads Type: {type || "All Leads"}</h1>
-            <Row>
+            <Row >
                 <Col>Full Name</Col>
                 <Col>Zip Code</Col>
                 <Col>City</Col>
@@ -36,7 +37,7 @@ export default function LeadList({type}) {
             {!leads
                 ? "There are no leads"
                 : leads.map((lead) => (
-                    <Lead key={lead._id} lead={lead} />
+                    <Lead type={type} key={lead._id} lead={lead} />
                 ))
             }
         </Container>
