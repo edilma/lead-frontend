@@ -1,0 +1,13 @@
+.button-buyer-page{
+    display: flex;
+    justify-content: center;
+}
+.leads-button button{
+    border: none;
+    
+}
+
+.all{
+    background-color: #F1F2F4;
+    
+}
