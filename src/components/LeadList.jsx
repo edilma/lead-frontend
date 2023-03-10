@@ -1,6 +1,5 @@
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Table from 'react-bootstrap/Table';
 import Lead from './Lead.jsx';
 import { useEffect, useState } from 'react';
 import { uri } from '../config.js';
@@ -19,27 +18,35 @@ export default function LeadList({type}) {
             })
             .catch(error => console.error)
 
-    }, [])
+    }, [type])
 
-    return (
-        <Container >
-            <h1>Leads Type: {type || "All Leads"}</h1>
-            <Row >
-                <Col>Full Name</Col>
-                <Col>Zip Code</Col>
-                <Col>City</Col>
-                <Col>Phone Number</Col>
-                <Col>Email</Col>
-                <Col>State</Col>
-                <Col>Learning Type</Col>
-                <Col>Agree</Col>
-            </Row>
-            {!leads
-                ? "There are no leads"
-                : leads.map((lead) => (
-                    <Lead type={type} key={lead._id} lead={lead} />
-                ))
-            }
-        </Container>
-    )
+return (
+  <Container>
+    <h1>Leads Type: {type || 'All Leads'}</h1>
+    <Table className='table'   >
+      <thead className='thead-light'>
+        <tr>
+          <th>Full Name</th>
+          <th>Zip Code</th>
+          <th>City</th>
+          <th>Phone Number</th>
+          <th>Email</th>
+          <th>State</th>
+          <th>Learning Type</th>
+         
+        </tr>
+      </thead>
+      <tbody className='table-body'>
+        {!leads || leads.length==0 ? (
+          <tr>
+            <td colSpan="8">There are no leads</td>
+          </tr>
+        ) : (
+          leads.map((lead) => <Lead type={type} key={lead._id} lead={lead} />)
+        )}
+      </tbody>
+    </Table>
+  </Container>
+);
+
 }

@@ -55,7 +55,30 @@ body {
 p { margin-top: 20px; }
 
 .local{
-    background-color: #f3e40dc7;
+    background-color: #f5eb61ba;
     color: black;
 }
 
+.remote{
+    background-color: #67a8a9ba;
+    color: black;
+}
+.leads-table-header
+{
+text-align: center;
+font-weight: bolder;
+
+}
+
+.leads-type-page{
+text-align: center;
+
+}
+
+.thead-light{
+    background-color: #e8f0f1;
+}
+
+.table-body{
+    background-color: antiquewhite;
+}

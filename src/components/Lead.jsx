@@ -2,21 +2,21 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 
-export default function Lead({lead, type}) {
-    const {first_name, last_name, zip, city, state,
-        email,phone_number,learning_option, agree} = lead
-    return(
-        <Row className={!type ? learning_option : ''}>
-        <Col>{first_name + " " + last_name}</Col>
-        <Col>{zip}</Col>
-        <Col>{city}</Col>
-        <Col>{phone_number}</Col>
-        <Col>{email}</Col>       
-        <Col>{state}</Col>
-        <Col>{learning_option}</Col>
-        <Col>{agree}</Col>
-        </Row>
-    )
+export default function Lead({ type, lead }) {
+    return (
+        <tr className={!type ? lead.learning_option : ''}>
+          <td>{lead.first_name + " " + lead.last_name}</td>
+          <td>{lead.zip}</td>
+          <td>{lead.city}</td>
+          <td>{lead.phone_number}</td>
+          <td>{lead.email}</td>
+          <td>{lead.state}</td>
+          <td>{lead.learning_option}</td>
+       
+        </tr>
+      );
 }
+
+
 
    

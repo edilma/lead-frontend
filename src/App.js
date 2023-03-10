@@ -10,6 +10,10 @@ import BuyerPage from './scenes/BuyerPage.jsx';
 import BridgeToLead from './scenes/BridgeToLead.jsx';
 
 
+
+
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -17,12 +21,15 @@ function App() {
       <Routes>
     
         <Route path="/leadForm" element ={<LeadFormPage />} />
-        <Route path="/leads" element={<LeadListPage type=""/>} />
+        <Route path="/leads" element={<LeadListPage type=""/>} /> 
         <Route path="/leads/remote" element={<LeadListPage type="remote" />} />
         <Route path="/leads/local" element={<LeadListPage type="local"/>} />
         <Route path='/thanks' element={<ThankYouPage />} />
         <Route path='/bridge' element={<BridgeToLead />} />
         <Route path='/buyer' element={<BuyerPage />} />
+     
+       
+        {/* <Route path="/leads2" element={<LeadListPage type=""/>} /> */}
         
       </Routes>
 

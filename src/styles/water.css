@@ -34,7 +34,7 @@ html {
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
+  font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
   line-height: 1.4;
   max-width: 800px;
   margin: 20px auto;
@@ -689,8 +689,8 @@ tfoot {
 }
 
 tbody tr:nth-child(even) {
-  background-color: #161f27;
-  background-color: var(--background);
+  /* background-color: #161f27;
+  background-color: var(--background); */
 }
 
 tbody tr:nth-child(even) button {
@@ -884,4 +884,16 @@ body > footer {
     color: #00f;
     text-decoration: underline;
   }
+}
+
+.title-hook{
+  /* background-color: #12c8dd; */
+  text-align: center;
+  font-weight: bolder;
+  font-size: 1.8rem;
+  color: #12c8dd;
+}
+.question-lead-form{
+  
+  font-size: 1.3rem;
 }

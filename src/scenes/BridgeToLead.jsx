@@ -18,7 +18,7 @@ export default function BridgeToLead() {
             <div className="center-box">
 
             <Button onClick={handleShow}>
-        Lauch Lead Capture Form
+        Launch Lead Capture Form
       </Button>
 
       <Modal show={show} onHide={handleClose}>
