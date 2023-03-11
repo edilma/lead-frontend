@@ -8,6 +8,8 @@ import LeadListPage from './scenes/LeadListPage.jsx';
 import ThankYouPage from './scenes/ThankYouPage.jsx';
 import BuyerPage from './scenes/BuyerPage.jsx';
 import BridgeToLead from './scenes/BridgeToLead.jsx';
+import Login from './components/Login';
+import LandingPage from './scenes/LandingPage';
 
 
 
@@ -27,10 +29,9 @@ function App() {
         <Route path='/thanks' element={<ThankYouPage />} />
         <Route path='/bridge' element={<BridgeToLead />} />
         <Route path='/buyer' element={<BuyerPage />} />
+        <Route path='/login' element={<LandingPage />} />
      
        
-        {/* <Route path="/leads2" element={<LeadListPage type=""/>} /> */}
-        
       </Routes>
 
 
