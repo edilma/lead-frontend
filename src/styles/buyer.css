@@ -9,5 +9,19 @@
 
 .all{
     background-color: #F1F2F4;
-    
+}
+
+.hero-image{
+    background-color:#F3E20D ;
+    align-items: ri;
+}
+
+.loginBox{
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+align-items: center;
+}
+.login-title{
+    text-align: center;
 }

@@ -17,7 +17,7 @@ export default function BridgeToLead() {
           <div className="center-container">
             <div className="center-box">
 
-            <Button onClick={handleShow}>
+            <Button  onClick={handleShow}>
         Launch Lead Capture Form
       </Button>
 
