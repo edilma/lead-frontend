@@ -22,7 +22,7 @@ export default function LeadList({type}) {
 
 return (
   <Container>
-    <h1>Leads Type: {type || 'All Leads'}</h1>
+    <h1>Leads Category: {type || 'All Leads'}</h1>
     <Table className='table'   >
       <thead className='thead-light'>
         <tr>

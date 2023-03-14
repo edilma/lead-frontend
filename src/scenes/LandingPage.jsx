@@ -14,12 +14,9 @@ export default function LandingPage() {
             <h1 className="login-title">BUYER LOGIN </h1>
             <Container className="loginBox">
                 <Row>
-                    <Col> <img className="hero-image" src={LDS_Header} alt="LDS Logo" />e</Col>
+                    <Col> <img className="hero-image" src={LDS_Header} alt="LDS Logo" /></Col>
                     <Col>
-
                         <Row><Login /></Row>
-
-
                     </Col>
                 </Row>
             </Container>

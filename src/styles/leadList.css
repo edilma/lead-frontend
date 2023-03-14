@@ -55,12 +55,12 @@ body {
 p { margin-top: 20px; }
 
 .local{
-    background-color: #f5eb61ba;
+    background-color: #f5eb6183;
     color: black;
 }
 
 .remote{
-    background-color: #67a8a9ba;
+    background-color: #67a8a9ab;
     color: black;
 }
 .leads-table-header
@@ -74,11 +74,19 @@ font-weight: bolder;
 text-align: center;
 
 }
+.slogan{
+    
+    text-align: center;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+}
 
 .thead-light{
-    background-color: #e8f0f1;
+    /* background-color: #e8f0f1; */
+    background-color: #e8d6ed;
+
 }
 
 .table-body{
-    background-color: antiquewhite;
+    background-color: #dee2e6;
 }

@@ -17,6 +17,7 @@
     width: 100%;
     height: 100vh;
     background-image: url('../../public/images/lead-gen-user.png');
+    background-color: #F3E20D;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -27,10 +28,12 @@
     width: 100%;
     height: 100vh;
     background-image: url('../../public/images/lead-gen-user.png');
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: #F3E20D;
     background-attachment: fixed;
+    
 }
 
 .center-container {
@@ -90,6 +93,35 @@ body{
     text-align: center !important;
     color: #F3E20D;
     font-weight: bold;
+}
+
+.thankYouImage{
+    background: color #0670b8; 
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+.homepage-container{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background-color: #dee2e6b0;
+    
+}
+.buttons-col{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+}
+.login-buyer{
+    background-color: #f3e40d98;
+}
+.signup-buyer{
+    background-color: #00fbff94;
 }
 
 

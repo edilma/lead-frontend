@@ -10,21 +10,21 @@ export default function SelectLeadButton({type}){
     return(
        <div className='button-buyer-page'>
             <Button 
-            className="leads-button local" 
+            className="leads-button localButton" 
             size="lg"
             onClick= {()=>navigate(`/leads/local`)}
             >
           Local Leads
         </Button>
         <Button 
-        className="leads-button remote" 
+        className="leads-button remoteButton" 
         size="lg"
         onClick= {()=>navigate(`/leads/remote`)}
         >
           Remote Leads
         </Button>
         <Button 
-        className="leads-button all" 
+        className="leads-button allButton" 
         size="lg"
         onClick={()=>navigate(`/leads/`)}
         >
