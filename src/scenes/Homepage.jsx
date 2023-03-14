@@ -12,8 +12,9 @@ export default function HomePage() {
     return (
         <>
             <Container className="homepage-container">
+                
                 <Row>
-                    <Col><img className="homepage-image"  src={home_lds} alt="LDS leads"/></Col>
+
                     <Col className="buttons-col">
                         <Row>
                             <Button
@@ -21,7 +22,7 @@ export default function HomePage() {
                                 size="lg"
                                 onClick={() => navigate(`/login`)}
                             >
-                                Log in Register Buyer
+                                Buyer Log in
                             </Button>
 
                         </Row>
@@ -30,7 +31,7 @@ export default function HomePage() {
                             size="lg"
                             onClick={() => navigate(`/buyer`)}
                         >
-                            Sign Up New Buyer
+                            Buyer Sign Up
                         </Button> </Row>
 
                     </Col>
