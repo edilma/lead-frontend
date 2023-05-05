@@ -1,0 +1,14 @@
+.demo {
+    width: 100%;
+    height: 100vh;
+    /* background-image: url('../../public/images/lead-gen-user.png'); */
+    background-image: url(../images/demo_sites.png);
+    background-color: #F3E20D;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.col-background{
+    background-color: #F3E20D;
+}

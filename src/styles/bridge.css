@@ -58,10 +58,6 @@
     font-size: larger;
 }
 
-
-
-
-
 .center-box>h1,
 .center-box>p,
 .center-box>p a:link,
@@ -132,5 +128,7 @@ body{
 .signup-buyer{
     background-color: #f0bf13;
 }
+
+
 
 

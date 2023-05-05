@@ -24,6 +24,7 @@ export default function HomePage() {
                             >
                                 Buyer Log in
                             </Button>
+                          
 
                         </Row>
                         <Row>    <Button
@@ -33,6 +34,22 @@ export default function HomePage() {
                         >
                             Buyer Sign Up
                         </Button> </Row>
+                        <Row>
+                        <Button
+                                className="login-buyer"
+                                size="sm"
+                                onClick={() => navigate(`/login`)}
+                            >
+                                FOR BUYER DEMO CLICK  
+                            </Button>
+                            <Button
+                                className="login-buyer"
+                                size="sm"
+                                onClick={() => navigate(`/login`)}
+                            >
+                                FOR SELLER DEMO CLICK  
+                            </Button>
+                        </Row>
 
                     </Col>
                 </Row>

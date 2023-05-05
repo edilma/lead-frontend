@@ -10,6 +10,8 @@ import BuyerPage from './scenes/BuyerPage.jsx';
 import BridgeToLead from './scenes/BridgeToLead.jsx';
 import LandingPage from './scenes/LandingPage';
 import HomePage from './scenes/Homepage.jsx';
+import DemoPage from './scenes/DemoPage.jsx';
+import DemoPage2 from './scenes/DemoPage2';
 
 
 
@@ -30,6 +32,8 @@ function App() {
         <Route path='/bridge' element={<BridgeToLead />} />
         <Route path='/buyer' element={<BuyerPage />} />
         <Route path='/login' element={<LandingPage />} />
+        <Route path='/demo' element={<DemoPage />} />
+        <Route path='/demo2' element={<DemoPage2 />} />
         <Route path='/' element={<HomePage />} />
        
       </Routes>
