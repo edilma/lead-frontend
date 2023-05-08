@@ -8,7 +8,7 @@ export default function ModalForm(){
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const [background,setBackground] = useState("demo")
+   
 
     return(
         <div className="center-box">

@@ -45,8 +45,8 @@ export default function DemoPage2() {
 GO TO SEE THE LEADS
   </Row>
             <Row>
-            <SelectLeadButton />
-        <LeadList type='All Leads'/>
+            
+        put the button to redirect the users
 
                    </Row>
            
