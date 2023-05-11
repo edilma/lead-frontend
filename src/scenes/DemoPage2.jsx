@@ -10,17 +10,27 @@ import Header from "../components/Header.jsx";
 import demo_sites from "../images/demo_sites.png"
 import SelectLeadButton from "../components/SelectLeadButton.jsx";
 import LeadList from "../components/LeadList.jsx";
-import "../styles/demo.css"
+// import "../styles/demo.css"
+import "../styles/water.css"
 
 
 export default function DemoPage2() {
     const [background,setBackground] = useState("demo")
+    const heading = 
+        <>
+          Find Perfect Hotels
+          <wbr />
+          <br />
+          <span tw="text-primary-500">anywhere you go.</span>
+        </>
+     
+    
  
 
     return (
         <>
         <Row>
-        <Header/>
+        {heading}
         </Row>
         <Row>
             <Col >
@@ -45,8 +55,10 @@ export default function DemoPage2() {
 GO TO SEE THE LEADS
   </Row>
             <Row>
-            
+            <Button>
+
         put the button to redirect the users
+            </Button>
 
                    </Row>
            

@@ -1,65 +1,46 @@
-import Row from "react-bootstrap/Row";
+import ModalForm from "../components/ModalForm.jsx";
+import Header from "../components/Header";
 import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useState } from "react"
-import LeadForm from "../components/LeadForm.jsx"
-import Button from 'react-bootstrap/Button'
-import Modal from 'react-bootstrap/Modal'
+import Button from "react-bootstrap/Button";
 import "../styles/demo.css"
-
-
-export default function DemoPage() {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-    const [background,setBackground] = useState("demo")
-
-    return (
-        <main className={`${background}`}>
-
-<h1 className="login-title">BUYER LOGIN </h1>
-<Container className="loginBox">
-
-
-    <Row>
-        <Col> 
-        <div className="center-box">
-
-<Button  onClick={handleShow}>
-Launch Lead Capture Form
-</Button>
-
-<Modal show={show} onHide={handleClose}>
-<Modal.Body>
-<h3 className="modal-title text-center" > Yes, in only weeks, you will ...</h3>
-<LeadForm />
-</Modal.Body>
-</Modal>
-
-</div>
-
-        </Col>
+import { useState } from "react";
 
 
 
-        <Col>
-            <Row>hello </Row>
-        </Col>
-    </Row>
-</Container>
+export default function DemoPage(){
+    const [background, useBackground] = useState()
 
+    return(
+        <>
+        <Container fluid className="main-container">
+            <Row>
+                
 
+            <Col xs={6}>
+            <h1>LDS</h1>
+            <h2>Lead Delivery System</h2>
+            <h3>The complete solucion to get and deliver your leads</h3>
+            </Col>
+            <Col>
+                <Row>   
+                    <Col><ModalForm /></Col>
+                    <Col>Lead Capture Forms</Col>
+                </Row>
+                <Row>
+                <Col><Button>Click Here</Button></Col>
+                    <Col>Lead Capture Forms</Col>
+                </Row>
+                <Row>
+                <Col><Button>Click Here</Button></Col>
+                    <Col>Lead Capture Forms</Col>
+                </Row>
 
-
-
-
-
-
-
-
-
-
-        </main>
-
+            </Col>
+            </Row>
+        </Container>
+        </>
     )
+
 }
