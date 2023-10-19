@@ -10,7 +10,9 @@ import { useState } from "react";
 
 
 export default function DemoPage(){
-    const [background, useBackground] = useState()
+    const handleRedirect = ()=>{
+        
+    }
 
     return(
         <>
@@ -33,7 +35,7 @@ export default function DemoPage(){
                     <Col>Lead Capture Forms</Col>
                 </Row>
                 <Row>
-                <Col><Button>Click Here</Button></Col>
+                <Col><Button onClick={handleRedirect}>Go to see the leads</Button></Col>
                     <Col>Lead Capture Forms</Col>
                 </Row>
 
